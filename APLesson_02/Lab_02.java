@@ -12,7 +12,7 @@ public class Lab_02
 		int num = 6293;
 		int zip = 92130;
 		
-		System.out.println(num + " " + "Belmont Trail Ct. San Diego, CA" + " " + zip);
+		System.out.println("Priyanka Mutani\n" + num + " " + "Belmont Trail Ct.\nSan Diego, CA" + " " + zip);
 		
 		int l = 6;
 		int w = 3;

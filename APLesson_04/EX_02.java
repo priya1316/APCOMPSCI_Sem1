@@ -36,3 +36,5 @@ public class EX_02
 		
 	}
 }
+
+system.out.printf("your payment would be %.2f.", payment)
