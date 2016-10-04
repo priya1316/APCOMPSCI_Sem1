@@ -1,7 +1,6 @@
 import java.util.Scanner;
 public class EX_01
 {
-	static int l,w;
 	public static void main(String[]args)
 	{
 		//instantiate Scanner object
@@ -9,9 +8,9 @@ public class EX_01
 		
 		//initialize variables
 		System.out.println("Please enter your length:");
-		l = kb.nextInt();
+		int l = kb.nextInt();
 		System.out.println("Please enter your width:");
-		w = kb.nextInt();
+		int w = kb.nextInt();
 		
 		//method calls 	
 		print(calcPerim(l,w));
