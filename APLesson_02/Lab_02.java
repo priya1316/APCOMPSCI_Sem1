@@ -6,13 +6,13 @@ public class Lab_02
 		int b = 4;
 		int c = a*b;
 		
-		System.out.println("Nine multiplied by eight is" + " " + c);
-	
+		System.out.println( a + " multiplied by " + b + " is" + " " + c);
+	 
 	
 		int num = 6293;
 		int zip = 92130;
 		
-		System.out.println("Priyanka Mutani\n" + num + " " + "Belmont Trail Ct.\nSan Diego, CA" + " " + zip);
+		System.out.println("\nPriyanka Mutani\n" + num + " " + "Belmont Trail Ct.\nSan Diego, CA" + " " + zip);
 		
 		int l = 6;
 		int w = 3;
@@ -22,6 +22,6 @@ public class Lab_02
 		int wh = 2*w*h;
 		int sufArea = lw + lh + wh;
 		
-		System.out.println("The surface area of your rectangle is" + " " + sufArea);
+		System.out.println("\nThe surface area of your rectangle is" + " " + sufArea);
 	}
 }
