@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class EX_03
 {
-	static int side;
+	static double side;
 	static double sa;
 	
 	public static void main(String[]args)
@@ -11,7 +11,7 @@ public class EX_03
 		
 		//initalize variables
 		System.out.println("Please enter side length:");
-		side = kb.nextInt();
+		side = kb.nextDouble();
 		
 		//method calls
 		calcSurf();
@@ -24,6 +24,6 @@ public class EX_03
 	public static void print()
 	{
 		//print using the new average value
-		System.out.println("The average of " + num1 + ", " + num2 + ", " + num3 + " is " + average);
+		System.out.printf("The surface area of a cube whose sides are " + side + " in length is %.5f",sa);
 	}
 }

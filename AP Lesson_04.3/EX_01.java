@@ -1,31 +1,27 @@
 import java.util.Scanner;
 public class EX_01
 {
-	static int l,w;
-	static int perimeter;
-	
 	public static void main(String[]args)
 	{
 		//instantiate Scanner object
 		Scanner kb = new Scanner(System.in);
 		
-		//initalize variables
+		//initialize variables
 		System.out.println("Please enter your length:");
-		l = kb.nextInt();
+		double l = kb.nextDouble();
 		System.out.println("Please enter your width:");
-		w = kb.nextInt();
+		double w = kb.nextDouble();
 		
-		//method calls
-		calcPerim();
-		print();
+		print(calcPerim(l,w));
+		
 	}
-	public static void calcPerim()
+	public static double calcPerim(double l, double w)
 	{
-		perimeter = (2*l)+ (2*w);
+		return 2*(l+w);
 	}
-	public static void print()
+	public static void print(double perimeter)
 	{
-		//print using the new perimeter value
-		System.out.println("The perimeter of your rectangle is " + perimeter);
+		//print using new perimeter value 
+		System.out.printf ("The perimeter of your rectangle is %.5f", perimeter);
 	}
 }
