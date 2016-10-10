@@ -2,11 +2,22 @@ public class Lesson_05
 {
 	public static void main(String[]args)
 	{
-		int num = 5;
 		
-		if (num == 3)
+		if(tOrF())
 		{
-			System.out.println("num equals 5!");
+			System.out.println("It is true!");
+			
+		}
+		
+		if(!tOrF())
+		{
+			System.out.println("It is false!");
 		}
 	}
+	
+	public static boolean tOrF()
+	{
+		return true;
+	}
+	
 }
