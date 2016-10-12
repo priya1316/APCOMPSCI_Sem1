@@ -1,23 +1,22 @@
+import java.util.Random;
+import java.util.Scanner;
 public class Lesson_05
 {
 	public static void main(String[]args)
 	{
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Please enter numer 1: ");
+		int one = kb.nextInt();
+		System.out.println("Please enter number 2: ");
+		int two = kb.nextInt();
 		
-		if(tOrF())
-		{
-			System.out.println("It is true!");
-			
-		}
+		boolean even = (one + two) %2 ==0;
 		
-		if(!tOrF())
-		{
-			System.out.println("It is false!");
-		}
-	}
-	
-	public static boolean tOrF()
-	{
-		return true;
+		if(even)
+			System.out.println("Your number " +(one + two) + " is even!");
+		
+		if(!even)
+			System.out.println("Your number " + (one + two) + " is odd!");
 	}
 	
 }
