@@ -21,7 +21,7 @@ public class Lab05_EX04
 		
 	}
 	
-	public static double calcCondish(double BMI)
+	public static String calcCondish(double BMI)
 	{
 		if (BMI > 39.9)
 			return "Morbidly Obese";
