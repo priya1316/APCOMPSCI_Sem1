@@ -23,6 +23,8 @@ public class Lab05_EX01
 			
 		if(computer > player)
 			winner = "computer";	
+		if (player == computer)
+			winner = "It's a tie!";
 
 	}
 }
