@@ -15,41 +15,79 @@ public class Lab05_EX05
 								"\n 2. Loki");
 			int thorOrLoki = kb.nextInt();
 			if(thorOrLoki == 1)
+			{
 				System.out.println("Who is Thor's father?");
+				kb.nextLine();
 				String thorAnswer = kb.nextLine();
 				if(thorAnswer.equals("Odin"))
+				{
 					System.out.println("Correct!");
+				}	
 				else
+				{
 					System.out.println("Sorry, that is wrong.");
+				}
+					
+				
+			}
 			
 			else
+			{
 				System.out.println("Who is Loki's real father?");
-				String  lokiAnswer = kb.nextLine();
-				if(lokiAnswer.equals("kin"))
+				kb.nextLine();
+				String lokiAnswer = kb.nextLine();
+				if(lokiAnswer.equals("Laufey"))
+				{
 					System.out.println("Correct!");
+				}
+					
 				else
-					System.out.println("Sorry, that is wrong.")
+				{
+					System.out.println("Sorry, that is wrong.");
+				}
+					
+			}	
+		}		
 		else 
-				
-			if(mathAnswer == 4)
-			{
-				System.out.println("Correct");
-				
-			}
-			else
-				System.out.println("No! Wrong! You Lose!");
-		}
-		else
 		{
-			System.out.println("Who said the phrase \"Whatever you are be a good one.\"?");
-			kb.nextLine();
-			String wordAnswer = kb.nextLine();
-			if(wordAnswer.equals("Abraham Lincoln"))
+			System.out.println("Would you like a question about..."+
+								"\n 1. Wolverine"+
+								"\n 2. Professor X");
+			int wolfOrProf = kb.nextInt();
+			if(wolfOrProf == 1)
 			{
-				System.out.println("Correct!");
-				
+				System.out.println("Was Wolverine a natural mutant?");
+				kb.nextLine();
+				String wolfAnswer = kb.nextLine();
+				if (wolfAnswer.equals("no"))
+				{
+					System.out.println("Correct");
+				}
+					
+				else
+				{
+					System.out.println("Sorry, that is wrong.");
+				}	
 			}
-			else
-				System.out.println("No! Wrong! You Lose!");
-		}
+				
+			else 
+			{
+				System.out.println("What object caused Professor X to be in a wheelchair?");
+				kb.nextLine();
+				String profAnswer = kb.nextLine();
+				if(profAnswer.equals ("a bullet"))
+				{
+					System.out.println("Correct!");
+				}
+					
+				else
+				{
+					System.out.println("Sorry, that is wrong.");
+				}
+					
+			}
+				
+		}	
+			
 	}
+}
