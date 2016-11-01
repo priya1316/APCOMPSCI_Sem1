@@ -32,12 +32,12 @@ public class EX_03
 		//method call
 		double total = formula.payment(princpl,rate,number,time);
 		
-		System.out.printf("Your payment would be $%.2f.", total);
+		System.out.printf("Your total monthly payment would be $%.2f.", total);
 	}	
 	
 	public static double payment(double p, double r, double n, double t)
 	{
-		return (p*Math.pow((1+(r/n)), (n*t)));
+		return (p*Math.pow((1+(r/n)), (n*t)))/(12*t);
 		
 	}
 }
