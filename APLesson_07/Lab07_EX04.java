@@ -7,17 +7,18 @@ public class Lab07_EX04
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Please enter a sentence: ");
-		number = kb.nextInt();
+		sentence = kb.nextLine();
 		
 		replace();
-		System.out.println("The sum of the digits in " + number + " is " + sum);
+		System.out.println(sentence);
 	}
 	public static void replace()
 	{
-		while()
-		{
-			sum += (num % 10);
-			num /= 10;
-		}
+			while(sentence.indexOf("a") >= 0)
+			{
+				sentence = sentence.substring(0, sentence.indexOf("a")) + "@" + sentence.substring(sentence.indexOf("a") + 1);
+			}
+			
+	
 	}
 }
