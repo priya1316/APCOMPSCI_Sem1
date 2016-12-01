@@ -11,7 +11,6 @@ public class Lab09_EX04
 		
 		int [] seq = new int[size];
 		
-		//fills the array
 		System.out.println("The fibonacci sequence is...");
 		for(int i = 0; i < seq.length; i++)
 		{

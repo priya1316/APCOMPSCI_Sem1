@@ -9,7 +9,7 @@ public class Lab09_EX07
 		
 		System.out.println("For the words...");
 		printArray();
-		System.out.println("\nOnly" + hasZs(words) + " contains the letter z");
+		System.out.println("\nOnly [" + hasZs(words) + " ] contain(s) the letter z");
 	}
 	
 	public static void fillArray()
@@ -24,7 +24,7 @@ public class Lab09_EX07
 	}
 	public static void printArray()
 	{
-		for(Stirng wrds : words)
+		for(String wrds : words)
 		{
 			System.out.print(wrds + " ");
 		}
@@ -34,12 +34,12 @@ public class Lab09_EX07
 		String zs = "";
 		for(String wrds : w)
 		{
-			if(num % 2 != 0)
+			if(wrds.indexOf("z") >= 0)
 			{
-				odds += " ";
-				odds += num;
+				zs += wrds;
+				zs += " ";
 			}
 		}
-		return odds;
+		return zs;
 	}
 }

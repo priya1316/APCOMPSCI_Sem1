@@ -1,27 +1,26 @@
 public class Lab09_EX05
 {
-	static int Array;
+	static int[] numbers = new int[10];
 	
 	public static void main(String[]args)
 	{
-		int[] numbers = new int[10];
-		fillArray(numbers);
+		fillArray();
 		
 		System.out.println("For the following numbers...");
-		printArray(numbers);
-		System.out.println("The " + getOdds(numbers) + " are odd numbers");
+		printArray();
+		System.out.println("\nThe" + getOdds(numbers) + " are odd numbers");
 	}
 	
-	public static void fillArray(int[] n)
+	public static void fillArray()
 	{
-		for(int i=0; i < n.length; i++)
+		for(int i=0; i < numbers.length; i++)
 		{
-			n[i] = (int)(Math.random() * 100) + 1;
+			numbers[i] = (int)(Math.random() * 100) + 1;
 		}
 	}
-	public static void printArray(int[] n)
+	public static void printArray()
 	{
-		for(int num : n)
+		for(int num : numbers)
 		{
 			System.out.print(num + " ");
 		}
@@ -40,4 +39,3 @@ public class Lab09_EX05
 		return odds;
 	}
 }
-
