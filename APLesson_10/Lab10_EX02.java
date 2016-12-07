@@ -15,7 +15,7 @@ public class Lab10_EX02
 		
 		doEquation();
 		System.out.println(equation);
-
+		
 	}
 	public static void doEquation()
 	{
@@ -27,39 +27,35 @@ public class Lab10_EX02
 				if(equation.get(i).equals("*"))
 				{
 					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) * Integer.parseInt(equation.get(i+1))));
+					equation.remove(i-1);
+					equation.remove(i);
 				}
 				else
 				{
 					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) / Integer.parseInt(equation.get(i+1))));
+					equation.remove(i-1);
+					equation.remove(i);
 				}
-				equation.remove(i-1);
-				equation.remove(i);
 			}
-			else
-			{
-				i++;
-			}
-		}
-		while(i < equation.size())
-		{
-			if(equation.get(i).equals("+") || equation.get(i).equals("-"))
+			else if(equation.get(i).equals("+") || equation.get(i).equals("-"))
 			{
 				if(equation.get(i).equals("+"))
 				{
 					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
+					equation.remove(i-1);
+					equation.remove(i);
 				}
 				else
 				{
 					equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) - Integer.parseInt(equation.get(i+1))));
+					equation.remove(i-1);
+					equation.remove(i);
 				}
-				equation.remove(i-1);
-				equation.remove(i);
 			}
-			else 
+			else
 			{
-				i++;
+				i++;	
 			}
 		}
-		
 	}
 }
