@@ -21,7 +21,7 @@ public class MilesPerHour
 		distance = dist;
 		hours = hr;
 		minutes = min;
-		mph = 0;
+		milesperhr = 0;
 	}
 	
 	//Modifier
@@ -30,14 +30,26 @@ public class MilesPerHour
 		distance = dist;
 		hours = hr;
 		minutes = min;
-		mph = 0;
+		milesperhr = 0;
 	}
 	
 	//Accessor
 	public double getMPH()
 	{
-		mph = Math.round(distance / (hours + minutes / 60.0));
-		return mph;
+		milesperhr = Math.round(distance / (hours + minutes / 60.0));
+		return milesperhr;
+	}
+	public int getDistance()
+	{
+		return distance;
+	}
+	public int getHours()
+	{
+		return hours;
+	}
+	public int getMinutes()
+	{
+		return minutes;
 	}
 	
 }
