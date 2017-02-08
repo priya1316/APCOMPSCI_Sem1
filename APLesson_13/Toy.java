@@ -22,9 +22,9 @@ public abstract class Toy
 	{
 		this.name = n; 
 	}
-	public void setCount(int c)
+	public void setCount()
 	{
-		this.count = c;
+		this.count=+1;
 	}
 	
 	//Accessors
