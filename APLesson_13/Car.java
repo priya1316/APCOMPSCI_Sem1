@@ -1,5 +1,6 @@
 public class Car extends Toy
 {
+	private String car;
 	//default constructor 
 	public Car()
 	{

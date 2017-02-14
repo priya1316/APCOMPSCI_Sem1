@@ -1,5 +1,7 @@
 public class AFigure extends Toy
 {
+	private String AFigure;
+	
 	//default constructor 
 	public AFigure()
 	{

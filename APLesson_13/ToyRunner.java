@@ -2,7 +2,12 @@ public class ToyRunner
 {
 	public static void main(String[]args)
 	{
-		ToyStore x = new ToyStore("batman, bob, cats, honda, tesla");
-		x.toString3();
+		AFigure Aobject = new AFigure("Bob");
+		
+		Car Cobject = new Car("Pinto");
+		
+		System.out.println(Aobject);
+		System.out.println("");
+		System.out.print(Cobject);
 	}
 }

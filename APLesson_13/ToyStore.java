@@ -3,54 +3,51 @@ import java.util.Arrays;
 
 public class ToyStore {
 	public ArrayList<Toy>toylist;
-	public int count;
 	
 	//default constructor 
 	public ToyStore() {
-		this.toylist = new ArrayList<>();
+		toylist = new ArrayList<Toy>();
 	}
 	
-	//constructor with parameters --> list of toys
 	public ToyStore(String ts) {
 		loadToys(ts);
 	}
 	
 	public void loadToys(String ts) {
+		toylist = new ArrayList<Toy>();
 		ArrayList<String>toys = new ArrayList<String>(Arrays.asList(ts.split(", ")));
 		for(int i=0; i<toys.size(); i+=2)
 		{
 			String name = toys.get(i);
 			String type = toys.get(i+1);
-			if (getThatToy(name).equals("")) {
+			Toy x = getThatToy(name);
+			if (x == null) {
 				if(type.equals("Car")) {
-					Car x = new Car("tesla");
-					toylist.add(x);
+					toylist.add(new Car(name));
 				}
 				else if(type.equals("Action Figure")) {
-					AFigure x = new AFigure("batman");
-					toylist.add(x);
+					toylist.add(new AFigure(name));
 				}
 			}
-			else {toylist.get(i).setCount();}
+			else {x.setCount(x.getCount()+1);}
 		}
 	}
 
-	public String getThatToy(String nm) {
-		String rt = "";
-		for(int i=0; i<toylist.size(); i=+2) {
-			if(toylist.get(i).getName().equals(nm)) {
-				rt = toylist.get(i).getName();
+	public Toy getThatToy(String nm) {
+		for(Toy x: toylist) {
+			if(x.getName().equals(nm)) {
+				return x;
 			}
 		}
-		return rt;
+		return null;
 	}
 	public String getMostFrequentToy() {
 		String name = "";
-		int max = toylist.get(0).getCount();
-		for (int i=0; i<toylist.size(); i=+2) {
-			if (max<toylist.get(i).getCount()) {
-				max = toylist.get(i).getCount();
-				name = toylist.get(i).getName();
+		int max = Integer.MIN_VALUE;
+		for (Toy x : toylist) {
+			if (max<x.getCount()) {
+				max = x.getCount();
+				name = x.getName();
 			}
 		}
 		return name;
@@ -59,12 +56,12 @@ public class ToyStore {
 	public String getMostFrequentType() {
 		int cars = 0;
 		int figures = 0;
-		for (int i=0; i<toylist.size(); i=+2) {
-			if (toylist.get(i).getType().equals("Car")) {
-				cars+=1;
+		for (Toy x : toylist) {
+			if (x.getType().equals("Car")) {
+				cars++;
 			}
-			if (toylist.get(i).getType().equals("Action Figure")) {
-				figures+=1;
+			if (x.getType().equals("Action Figure")) {
+				figures++;
 			}
 		}
 
@@ -73,9 +70,11 @@ public class ToyStore {
 		else {return "Equal amounts of action figures and cars!";}
 	}
 
-	public void toString3() {
-		for (int i=0; i<toylist.size(); i=+2) {
-			System.out.println(toylist.get(i).toString());
+	public String toString() {
+		String output = "";
+		for (Toy x : toylist) {
+			output += "" + x;
 		}
+		return "\nToys in inventory...\n" + output + "\n";
 	}
 }

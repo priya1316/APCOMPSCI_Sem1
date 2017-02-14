@@ -1,7 +1,7 @@
 public abstract class Toy
 {
 	private int count;
-	private String name;;
+	private String name;
 	
 	//default constructor 
 	public Toy()
@@ -22,9 +22,9 @@ public abstract class Toy
 	{
 		this.name = n; 
 	}
-	public void setCount()
+	public void setCount(int c)
 	{
-		this.count=+1;
+		this.count = c;
 	}
 	
 	//Accessors
