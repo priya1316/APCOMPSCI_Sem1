@@ -1,17 +1,16 @@
 import java.util.Scanner;
-
 public class ToyStoreRunner
 {
 	public static void main(String[]args)
 	{
-		String toyslist = "";
+		String toysList = "";
 		Scanner kb = new Scanner(System.in);
-		System.out.println("enter a list of toys: ");
-		toyslist = kb.nextLine();
+		System.out.println("Enter a list of toys: ");
+		toysList = kb.nextLine();
 		
-		ToyStore toy = new ToyStore(toyslist);
-		System.out.println(toy);
-		System.out.println("The most frequent toy: " + toy.getMostFrequentToy());
-		System.out.println("the most frequent type of toy: " + toy.getMostFrequentType());
+		ToyStore toys = new ToyStore(toysList);
+		System.out.println(toys);
+		System.out.println("Most Frequent Toy: " + toys.getMostFrequentToy());
+		System.out.println("Most Frequent Type of Toy: " + toys.getMostFrequentType());
 	}
 }
