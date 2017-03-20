@@ -10,6 +10,7 @@ public abstract class Ticket
 	}
 	
 	//Accessors
+	
 	public abstract int getPrice();
 	
 	public int getSerialNo()
