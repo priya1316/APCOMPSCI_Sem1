@@ -1,5 +1,3 @@
-package Complete;
-
 public class Magpie3
 {
 	/** Get a default greeting @return a greeting*/
@@ -19,7 +17,7 @@ public class Magpie3
 		
 		if(statement.length() == 0)
 		{
-			return "Say something, please.";
+			response = "Say something, please.";
 		}
 
 		/** Exercise_01:
@@ -33,7 +31,7 @@ public class Magpie3
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		else if (findKeyword(statement, "no", 0) >= 0)
+		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "Why so negative?";
 		}
@@ -57,25 +55,87 @@ public class Magpie3
 			response = "She sounds like a pretty great teacher!";
 		}
 		
-		else if(statement.trim().length() == 0)
+		else if(findKeyword(statement, "I want to",0) >= 0)
 		{
-			response = "Say something, please.";
+			response = transformIWantToStatement(statement);
 		}
 		
 		else
 		{
-			response = getRandomResponse();
+			int psn = findKeyword(statement, "You" , 0);
+			if(psn >= 0 && findKeyword(statement, "me", psn) >= 0)
+			{
+				response = transformYouMeStatement(statement);
+			}
+			else
+			{
+				psn = findKeyword(statement, "i", 0);
+				if(psn >= 0 && findKeyword(statement, "you", psn) >= 0)
+				{
+					response = transformIWantToStatement(statement);
+				}
+				else
+				{
+					response = getRandomResponse(); 
+				}
+			}
 			
 		}
 		return response; 
 	}	
-		
+	private int findKeyword(String statement, String goal)
+	{
+		return findKeyword(statement, goal, 0);
+	}
+	
+	private String transformYouMeStatement(String statement)
+	{
+		statement = statement.trim().toLowerCase();
+		String lastChar = statement.substring(statement.length() - 1);
+		if(lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement.length() -1);
+		}
+		int psnOfYou = findKeyword(statement, "you");
+		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
+		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe);
+		return "What makes you think that I" + restOfStatement + "you?";
+	}
+	
+	private String transformIWantToStatement(String statement)
+	{
+		statement = statement.trim();
+		String lastChar = statement.charAt(statement.length() - 1) + "";
+		if(lastChar.equals("."))
+		{
+			statement = statement.replace(lastChar, "");
+		}
+		int psn = findKeyword(statement, "I want to");
+		String restOfStatement = statement.substring(psn+9);
+		return "What would it mean to" + restOfStatement;
+	}
+	
+	private String transformIYouStatement(String statement)
+	{
+		statement = statement.trim().toLowerCase();
+		String lastChar = statement.substring(statement.length() - 1);
+		if(lastChar.equals("."))
+		{
+			statement.substring(0, statement.length() - 1);
+		}
+		int psnI = findKeyword(statement, "I");
+		int psnYou = findKeyword(statement, "you", psnI + 1);
+		String restOfStatement = statement.substring(psnI + 1, psnYou);
+		return "Why do you" + restOfStatement + "me?";
+	}
 	private int findKeyword(String statement, String goal, int startPos)
 	{
-		String phrase = statement.trim();
-		int psn = phrase.toLowerCase().indexOf(goal.toLowerCase(), startPos);
+		String phrase = statement.trim().toLowerCase();
+		goal = goal.toLowerCase();
+		
+		int psn = phrase.indexOf(goal, startPos);
 			
-		while (psn > 0)
+		while (psn >= 0)
 		{
 			String before = "";
 			String after = "";
@@ -95,10 +155,45 @@ public class Magpie3
 			proceed otherwise
 			set after = the slot in phrase after psn + length of goal */
 		
-			if(psn + goal.length() < phrase.length())
+			if(psn + goal.length() + 1 < phrase.length())
 			{
 				after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
 			}
+			if ((before.compareTo("a") < 0 || before.compareTo("z") > 0) && (after.compareTo("a") < 0 || after.compareTo("z") > 0))
+			{
+				return psn;
+			}
+			psn = phrase.indexOf(goal, psn + 1);
 		}
+		return -1; 
 	}
+	
+	private String getRandomResponse()
+	{
+		final int NUMBER_OF_RESPONSES = 4;
+		double r = Math.random();
+		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
+		String response = "";
+		
+		if(whichResponse == 0)
+		{
+			response = "Interesting, tell me more.";
+		}
+		else if(whichResponse == 1)
+		{
+			response = "Hmmm.";
+		}
+		else if(whichResponse == 2)
+		{
+			response = "Do you really think so?";
+		}
+		else if(whichResponse == 3)
+		{
+			response = "You don't say.";
+		}
+		
+		return response;
+	}
+	
+		
 }
