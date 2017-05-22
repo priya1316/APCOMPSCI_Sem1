@@ -1,9 +1,9 @@
-public class ASCIIArt
+public class ASCIIArts
 {
-public static void main (String[]args)
+	public static void main(String[]args)
 	{
 		System.out.println("         /////////////\\\\");
-		System.out.println("       (((((((((((((( \\\\");
+		System.out.println("    	   \\\\(((((((((((( \\\\");
 		System.out.println("       ))) ~~      ~~  (((");
 		System.out.println("       ((( (*)     (*) )))");
 		System.out.println("       )))     <       (((");
@@ -15,7 +15,7 @@ public static void main (String[]args)
 	
 	
 		System.out.println("    /////////////\\\\");
-		System.out.println("  (((((((((((((( \\\\");
+		System.out.println("   (((((((((((((( \\\\");
 		System.out.println("  ))) ~~      ~~  (((");
 		System.out.println("  \\  (*)     (*)   /");
 		System.out.println("   \\      <       /");
