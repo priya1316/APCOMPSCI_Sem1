@@ -3,17 +3,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 public class MysteryMaze
 {
-	static int LIVES = 3
+	static int LIVES = 3;
 	
 	public static String character()
 	{
+		Scanner kb = new Scanner(System.in);
 		System.out.println("Choose your character!");
-		int character = kb.next();
+		String character = kb.next();
 		if(response.equals("Gertrude"))
 		{
 			System.out.println("You picked Gertrude! Great choice!");
 		}
-		if else(response.equals("Billy Bob Joe"))
+		else if(response.equals("Billy Bob Joe"))
 		{
 			System.out.println("You picked Billy Bob Joe! Awesome!");
 		}
@@ -39,7 +40,7 @@ public class MysteryMaze
 		{
 			if(question[i]/4 == 0)
 			{
-				System.out.println("Power up! You get an extra life!")
+				System.out.println("Power up! You get an extra life!");
 				LIVES++; 
 			}
 		}
@@ -50,8 +51,8 @@ public class MysteryMaze
 		{
 			if(point/10 == 0)
 			{
-				System.out.println("Congratulations, you will skip this next question!")
-				continue
+				System.out.println("Congratulations, you will skip this next question!");
+				continue;
 			}
 		}
 	}
@@ -59,7 +60,7 @@ public class MysteryMaze
 	{
 		if(point == 25)
 		{
-			System.out.println("You are at 25 points! Watch out! Now, every question wrong is minus 2 lives.")
+			System.out.println("You are at 25 points! Watch out! Now, every question wrong is minus 2 lives.");
 			if(response.equals(answer))
 			{
 				LIVES++; 
