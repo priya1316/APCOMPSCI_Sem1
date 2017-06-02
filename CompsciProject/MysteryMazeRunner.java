@@ -4,29 +4,27 @@ import java.util.Arrays;
 import java.io.*;
 public class MysteryMazeRunner
 {
-	public static void main(String[]args)
+	public static void main(String[]args) throw Exception
 	{
 		Scanner kb = new Scanner(System.in);
-		/*filename = new FileInputStream ("questions.txt");*/
-		BufferedReader reader = new BufferedReader(new FileReader("questions.txt"));
-		try 
-		{
-			StringBuilder sb = new StringBuilder();
-			String line = reader.readLine();
+		FileInputStream in = new FileInputStream("questions.txt");
+		BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
-			while (line != null) 
-			{
-				sb.append(line);
-				sb.append(System.lineSeparator());
-				line = reader.readLine();
-			}
-    
-			String everything = sb.toString();
-		} 
-		finally 
+		String strLine;
+		String[] filearray;
+		filearray = new String[10];
+
+		while ((strLine = br.readLine()) != null) 
 		{
-			reader.close();
+
+			for (int j = 0; j < filearray.length; j++)
+			{
+				filearray[j] = br.readLine();
+			}
+
 		}
+		in.close();
+		
 		
 		/*List<String> qa = new ArrayList<String>();
 
