@@ -10,11 +10,11 @@ public class MysteryMaze
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Choose your character!");
 		String character = kb.next();
-		if(response.equals("Gertrude"))
+		if(character.equals("Gertrude"))
 		{
 			System.out.println("You picked Gertrude! Great choice!");
 		}
-		else if(response.equals("Billy Bob Joe"))
+		else if(character.equals("Billy Bob Joe"))
 		{
 			System.out.println("You picked Billy Bob Joe! Awesome!");
 		}

@@ -7,10 +7,28 @@ public class MysteryMazeRunner
 	public static void main(String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
-		character();
-		filename = new FileInputStream ("questions.txt");
-		BufferedReader reader = new BufferedReader(new FileReader(filename));
-		List<String> qa = new ArrayList<String>();
+		/*filename = new FileInputStream ("questions.txt");*/
+		BufferedReader reader = new BufferedReader(new FileReader("questions.txt"));
+		try 
+		{
+			StringBuilder sb = new StringBuilder();
+			String line = reader.readLine();
+
+			while (line != null) 
+			{
+				sb.append(line);
+				sb.append(System.lineSeparator());
+				line = reader.readLine();
+			}
+    
+			String everything = sb.toString();
+		} 
+		finally 
+		{
+			reader.close();
+		}
+		
+		/*List<String> qa = new ArrayList<String>();
 
 		while((String line = reader.readLine()) != null)
 		{
@@ -18,14 +36,14 @@ public class MysteryMazeRunner
 			System.out.println(data);
 		}
 		
-		reader.close();
-		
+		reader.close();*/
+		/*
 		for(int i=-0; i<asdf.length(), i++)
 		{
 			System.out.println(asdf[i]);
 			try
 			{
-				ans = kb.next();
+				response = kb.next();
 			}
 			catch
 			{
@@ -36,5 +54,6 @@ public class MysteryMazeRunner
 				//run some method
 			}
 		}
+		*/
 	}
 }
