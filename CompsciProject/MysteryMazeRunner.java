@@ -2,57 +2,26 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.io.FileReader;
-import java.io.BufferedReader;
+import java.io.*;
 public class MysteryMazeRunner
 {
 	public static void main(String[]args) throws Exception
 	{
 		
-		FileReader file = new FileReader("/Users/multanip7501/Desktop/Multani_Priyanka/CompsciProject/questions.txt");
-		BufferedReader reader = new BufferedReader(file);
-
-		List<String> lines = new ArrayList<String>();
-
-		/*String text = "";*/
-		String line = reader.readLine();
-		while (line != null)
-		{
-			/*text += line;*/
-			lines.add(line);
-			/*System.out.println(Arrays.toString(lines));*/
-			line = reader.readLine();
-		}
-
-		reader.close();
-
-		/*return lines.toArray(new lines[0]);*/
-
-		String[] linesArray = lines.toArray(new String[0]);
-
-		for(String s : linesArray)
-		{
-			System.out.println(s);
-		}
-		
 		MysteryMaze mystery = new MysteryMaze();
 		Scanner kb = new Scanner(System.in);
 
-	
-		for(int i=-0; i<lines.length(), i++)
+		ArrayList lines = mystery.readFile();
+		for(int i=0; i<lines.size(); i+=2)
 		{
-			System.out.println(lines[i]);
-			try
+			System.out.println(lines.get(i));
+			
+			String response = kb.next();
+			
+			String answer = lines.get(i+1);
+			if (answer.equals(lines.get(i+1)));
 			{
-				response = kb.next();
-			}
-			catch
-			{
-				answer = kb.next();
-			}
-			if (answer.equals == lines[i+1]);
-			{
-				lives();
+				lives(response,answer);
 			}
 		}
 		
