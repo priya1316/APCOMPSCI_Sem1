@@ -9,7 +9,7 @@ public class MysteryMazeRunner
 	public static void main(String[]args) throws Exception
 	{
 		
-		FileReader file = new FileReader("/Users/Priya/Desktop/Work_Space/Multani_Priyanka-master/CompsciProject/questions.txt");
+		FileReader file = new FileReader("/Users/multanip7501/Desktop/Multani_Priyanka/CompsciProject/questions.txt");
 		BufferedReader reader = new BufferedReader(file);
 
 		List<String> lines = new ArrayList<String>();
@@ -34,37 +34,28 @@ public class MysteryMazeRunner
 		{
 			System.out.println(s);
 		}
+		
+		MysteryMaze mystery = new MysteryMaze();
+		Scanner kb = new Scanner(System.in);
 
-	}
-		
-}
-		
-		
-		/*List<String> qa = new ArrayList<String>();
-
-		while((String line = reader.readLine()) != null)
+	
+		for(int i=-0; i<lines.length(), i++)
 		{
-			qa.add(line);
-			System.out.println(data);
-		}
-		
-		reader.close();*/
-		/*
-		for(int i=-0; i<asdf.length(), i++)
-		{
-			System.out.println(asdf[i]);
+			System.out.println(lines[i]);
 			try
 			{
 				response = kb.next();
 			}
 			catch
 			{
-				ans = kb.nextInt();
+				answer = kb.next();
 			}
-			if ans.equals == asdf[i+1]
+			if (answer.equals == lines[i+1]);
 			{
-				//run some method
+				lives();
 			}
 		}
-		*/
+		
+	}
+}
 	

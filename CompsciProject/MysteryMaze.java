@@ -4,6 +4,10 @@ import java.util.Arrays;
 public class MysteryMaze
 {
 	static int LIVES = 3;
+	static int point;
+	static String answer;
+	static String response;
+	static String question;
 	
 	public static String character()
 	{
