@@ -1,29 +1,43 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.io.*;
+import java.util.List;
+import java.io.FileReader;
+import java.io.BufferedReader;
 public class MysteryMazeRunner
 {
-	public static void main(String[]args) throw Exception
+	public static void main(String[]args) throws Exception
 	{
-		Scanner kb = new Scanner(System.in);
-		FileInputStream in = new FileInputStream("questions.txt");
-		BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		
+		FileReader file = new FileReader("/Users/Priya/Desktop/Work_Space/Multani_Priyanka-master/CompsciProject/questions.txt");
+		BufferedReader reader = new BufferedReader(file);
 
-		String strLine;
-		String[] filearray;
-		filearray = new String[10];
+		List<String> lines = new ArrayList<String>();
 
-		while ((strLine = br.readLine()) != null) 
+		/*String text = "";*/
+		String line = reader.readLine();
+		while (line != null)
 		{
-
-			for (int j = 0; j < filearray.length; j++)
-			{
-				filearray[j] = br.readLine();
-			}
-
+			/*text += line;*/
+			lines.add(line);
+			/*System.out.println(Arrays.toString(lines));*/
+			line = reader.readLine();
 		}
-		in.close();
+
+		reader.close();
+
+		/*return lines.toArray(new lines[0]);*/
+
+		String[] linesArray = lines.toArray(new String[0]);
+
+		for(String s : linesArray)
+		{
+			System.out.println(s);
+		}
+
+	}
+		
+}
 		
 		
 		/*List<String> qa = new ArrayList<String>();
@@ -53,5 +67,4 @@ public class MysteryMazeRunner
 			}
 		}
 		*/
-	}
-}
+	
