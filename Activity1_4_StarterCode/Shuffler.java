@@ -15,11 +15,11 @@ public class Shuffler {
 	 * @param args is not used.
 	 */
 	public static void main(String[] args) {
-		System.out.println("Results of " + SHUFFLE_COUNT +
+		System.out.println("The result of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
 		int[] values1 = {0, 1, 2, 3};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			perfectShuffle(values1);
+			pShuffle(values1);
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values1.length; k++) {
 				System.out.print(" " + values1[k]);
@@ -28,11 +28,11 @@ public class Shuffler {
 		}
 		System.out.println();
 
-		System.out.println("Results of " + SHUFFLE_COUNT +
+		System.out.println("The result of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
 		int[] values2 = {0, 1, 2, 3};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			selectionShuffle(values2);
+			sShuffle(values2);
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values2.length; k++) {
 				System.out.print(" " + values2[k]);
@@ -49,8 +49,31 @@ public class Shuffler {
 	 * the cards in one half with the cards in the other.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
-	public static void perfectShuffle(int[] values) {
+	public static void pShuffle(int[] values) 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] temp = new int[values.length];
+		int mid = (values.length + 1) / 2;
+
+  
+		int uShuffledPosition = 0;
+		int i = 0;
+		for ( ; i < mid; i++) 
+		{ 
+			temp[uShuffledPosition] = values[i];
+			uShuffledPosition += 2;
+		}
+		uShuffledPosition = 1;
+		for ( ; i < values.length; i++)
+		{
+			temp[uShuffledPosition] = values[i];
+			uShuffledPosition += 2;
+		}
+		for (i = 0; i < values.length; i++) 
+		{
+			values[i] = temp[i];
+		}
+		
 	}
 
 	/**
@@ -64,7 +87,15 @@ public class Shuffler {
 	 * searching for an as-yet-unselected card.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
-	public static void selectionShuffle(int[] values) {
+	public static void sShuffle(int[] values) 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for (int i = values.length - 1; i > 0; i--) 
+		{
+			int position = (int) (Math.random() * (i + 1)); 
+			int temp = values[position];
+			values[position] = values[i];
+			values[i] = temp;
+		}
 	}
 }
