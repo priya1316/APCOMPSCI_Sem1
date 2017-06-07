@@ -18,7 +18,7 @@ public class Card {
 	/**
 	 * int value that holds the point value.
 	 */
-	private int pointValue;
+	private int pV;
 
 
    /**
@@ -28,11 +28,15 @@ public class Card {
 	 *                  containing the rank of the card
 	 * @param cardSuit  a <code>String</code> value
 	 *                  containing the suit of the card
-	 * @param cardPointValue an <code>int</code> value
+	 * @param cardpV an <code>int</code> value
 	 *                  containing the point value of the card
 	 */
-	public Card(String cardRank, String cardSuit, int cardPointValue) {
+	public Card(String cardRank, String cardSuit, int cardpV) 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		suit = cardSuit;
+		rank = cardRank;
+		pV = cardpV;
 	}
 
 
@@ -40,24 +44,30 @@ public class Card {
 	 * Accesses this <code>Card's</code> suit.
 	 * @return this <code>Card's</code> suit.
 	 */
-	public String suit() {
+	public String suit() 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-   }
+		return suit;
+    }
 
 	/**
 	 * Accesses this <code>Card's</code> rank.
 	 * @return this <code>Card's</code> rank.
 	 */
-	public String rank() {
+	public String rank() 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		return rank;
 	}
 
    /**
 	 * Accesses this <code>Card's</code> point value.
 	 * @return this <code>Card's</code> point value.
 	 */
-	public int pointValue() {
+	public int pV() 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		return pV;
 	}
 
 	/** Compare this card with the argument.
@@ -66,13 +76,22 @@ public class Card {
 	 *              are equal to those of the argument;
 	 *         false otherwise.
 	 */
-	public boolean matches(Card otherCard) {
+	public boolean matches(Card otherCard) 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		if(otherCard.suit().equals(this.suit()) && otherCard.rank().equals(this.rank()) && otherCard.pV() == this.pV())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
 	 * Converts the rank, suit, and point value into a string in the format
-	 *     "[Rank] of [Suit] (point value = [PointValue])".
+	 *     "[Rank] of [Suit] (point value = [pV])".
 	 * This provides a useful way of printing the contents
 	 * of a <code>Deck</code> in an easily readable format or performing
 	 * other similar functions.
@@ -81,7 +100,9 @@ public class Card {
 	 *         and point value of the card.
 	 */
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		return rank + " of " + suit + " (point value = " + pV + ")";
 	}
 }
