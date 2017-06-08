@@ -11,17 +11,17 @@ public class MysteryMazeRunner
 		MysteryMaze mystery = new MysteryMaze();
 		Scanner kb = new Scanner(System.in);
 
-		ArrayList lines = mystery.readFile();
-		for(int i=0; i<lines.size(); i+=2)
+		mystery.readFile();
+		for(int i = 0; i < mystery.linesArray.length; i++)
 		{
-			System.out.println(lines.get(i));
+			System.out.println(mystery.linesArray[i]);
 			
 			String response = kb.next();
 			
-			String answer = lines.get(i+1);
-			if (answer.equals(lines.get(i+1)));
+			String answer = mystery.linesArray[i+1];
+			if (answer.equals(mystery.linesArray[i+1]));
 			{
-				lives(response,answer);
+				mystery.lives(response,answer);
 			}
 		}
 		

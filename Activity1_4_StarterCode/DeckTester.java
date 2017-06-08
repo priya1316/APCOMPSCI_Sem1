@@ -31,7 +31,7 @@ public class DeckTester {
 		String[] suits = {"Clubs", "Diamonds", "Spades", "Hearts"};
 		int[] pV = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 		Deck deck = new Deck(ranks, suits, pV);
-		//System.out.println(d);
+		System.out.println(deck);
 		System.out.println("The dealt card for the whole deck is: " + deck.deal());
 	}
 }

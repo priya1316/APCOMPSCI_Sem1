@@ -9,8 +9,10 @@ public class MysteryMaze
 	static int point = 0;
 	static String answer;
 	static String response;
+	static String[] linesArray;
 	
-	public static ArrayList readFile()
+	
+	public static void readFile() throws Exception
 	{
 		FileReader file = new FileReader("/Users/multanip7501/Desktop/Multani_Priyanka/CompsciProject/questions.txt");
 		BufferedReader reader = new BufferedReader(file);
@@ -28,9 +30,9 @@ public class MysteryMaze
 
 		reader.close();
 
-		/*return lines.toArray(new lines[0]);*/
+		/*return lines.toArray(new String[0]);*/
 
-		String[] linesArray = lines.toArray(new String[0]);
+		linesArray = lines.toArray(new String[0]);
 		
 	}
 	public static String character()
@@ -40,15 +42,15 @@ public class MysteryMaze
 		String character = kb.next();
 		if(character.equals("Gertrude"))
 		{
-			System.out.println("You picked Gertrude! Great choice!");
+			return "You picked Gertrude! Great choice!";
 		}
 		else if(character.equals("Billy Bob Joe"))
 		{
-			System.out.println("You picked Billy Bob Joe! Awesome!");
+			return "You picked Billy Bob Joe! Awesome!";
 		}
 		else
 		{
-			System.out.println("Please pick a character.");
+			return "Please pick a character.";
 		}
 	}
 	public static void lives(String response, String answer)
@@ -62,23 +64,11 @@ public class MysteryMaze
 			LIVES--;
 		}
 	}
-	
-	public static void lives(int response, int answer)
-	{
-		if(response.equals(answer))
-		{
-			point++;
-		}
-		else
-		{
-			LIVES--;
-		}
-	}
 	public static void AddLife()
 	{
-		for(int i = 0; i = lines.length(); i++)
+		for(int i = 0; i <= point; i++)
 		{
-			if(lines[i]/4 == 0)
+			if(point % 4 == 0)
 			{
 				System.out.println("Power up! You get an extra life!");
 				LIVES++; 
@@ -87,9 +77,9 @@ public class MysteryMaze
 	}
 	public static void SkipQuestion()
 	{
-		for(int i = 0; i = point; i++)
+		for(int i = 0; i <= point; i++)
 		{
-			if(point/10 == 0)
+			if(point % 10 == 0)
 			{
 				System.out.println("Congratulations, you will skip this next question!");
 				continue;
