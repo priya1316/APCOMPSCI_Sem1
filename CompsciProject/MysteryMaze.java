@@ -10,6 +10,7 @@ public class MysteryMaze
 	static String answer;
 	static String response;
 	static String[] linesArray;
+	static String c;
 	
 	
 	public static void readFile() throws Exception
@@ -38,13 +39,13 @@ public class MysteryMaze
 	public static String character()
 	{
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Choose your character!");
-		String character = kb.next();
-		if(character.equals("Gertrude"))
+		System.out.println("Choose your character! Gertrude or Billy Bob Joe?");
+		c = kb.next();
+		if(c.equals("Gertrude"))
 		{
-			return "You picked Gertrude! Great choice!";
+			return ("You picked Gertrude! Great choice!");
 		}
-		else if(character.equals("Billy Bob Joe"))
+		else if(c.equals("Billy Bob Joe"))
 		{
 			return "You picked Billy Bob Joe! Awesome!";
 		}
@@ -58,47 +59,49 @@ public class MysteryMaze
 		if(response.equals(answer))
 		{
 			point++;
+			System.out.println("Congrats! You have " + point + " points!");
+			System.out.println("You have " + LIVES + " lives left.");
 		}
 		else
 		{
 			LIVES--;
+			System.out.println("Sorry that is not correct. You have " + LIVES + " lives left.");
+			System.out.println("You have " + point + " points.");
 		}
 	}
-	public static void AddLife()
+	public static void addLife()
 	{
-		for(int i = 0; i <= point; i++)
+		
+		if(point % 4 == 0)
 		{
-			if(point % 4 == 0)
-			{
-				System.out.println("Power up! You get an extra life!");
-				LIVES++; 
-			}
+			System.out.println("Power up! You get an extra life!");
+			LIVES++; 
+			System.out.println("You now have " + LIVES + " lives left.");
+			System.out.println("You now have " + point + " points.");
 		}
+		
 	}
-	public static void SkipQuestion()
+	public static void addPoints()
 	{
-		for(int i = 0; i <= point; i++)
+	
+		if(point % 5 == 0)
 		{
-			if(point % 10 == 0)
-			{
-				System.out.println("Congratulations, you will skip this next question!");
-				continue;
-			}
+			System.out.println("Congratulations, you get double the points for this question!");
+			point += 2;
+			System.out.println("You now have " + point + " points!");
+			System.out.println("You have " + LIVES + " lives left.");
+			
 		}
+		
 	}
-	public static void DoubleLoss()
+	public static void doubleLife()
 	{
-		if(point == 25)
+		if(point % 10 == 0)
 		{
-			System.out.println("You are at 25 points! Watch out! Now, every question wrong is minus 2 lives.");
-			if(response.equals(answer))
-			{
-				LIVES++; 
-			}
-			else
-			{
-				LIVES = LIVES-= 2;
-			}
+			System.out.println("Nice! You just doubled the number of lives you have!");
+			LIVES += LIVES;	
+			System.out.println("You now have " + LIVES + " lives");	
+			System.out.println("You have " + point + " points.");
 		}
 	}
 }
