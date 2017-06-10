@@ -10,19 +10,25 @@ public class MysteryMazeRunner
 		
 		MysteryMaze mystery = new MysteryMaze();
 		Scanner kb = new Scanner(System.in);
+		mystery.character();
 
 		mystery.readFile();
-		for(int i = 0; i < mystery.linesArray.length; i++)
+		for(int i = 0; i <= mystery.linesArray.length; i+=2)
 		{
 			System.out.println(mystery.linesArray[i]);
-			
-			String response = kb.next();
+			String response = kb.nextLine();
 			
 			String answer = mystery.linesArray[i+1];
-			if (answer.equals(mystery.linesArray[i+1]));
+			
+			if (answer.equals(mystery.linesArray[i+1]))
 			{
 				mystery.lives(response,answer);
+				mystery.addLife();	
+				mystery.doubleLife();
+				mystery.addPoints();
+				
 			}
+			
 		}
 		
 	}
